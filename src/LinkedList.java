@@ -1,4 +1,3 @@
-
 public class LinkedList<T> implements Sequence<T> {
 	class ListNode<T> {
 		public T datum;
