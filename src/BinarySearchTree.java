@@ -1,4 +1,22 @@
-class BinarySearchTree<T> implements Set<T> {
+class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
+	class TreeNode<T> {
+		public T datum;
+		public TreeNode<T> left;
+		public TreeNode<T> right;
+
+		public TreeNode() {
+			datum = null;
+			left = null;
+			right = null;
+		}
+
+		public TreeNode(T datum, TreeNode<T> left, TreeNode<T> right) {
+			this.datum = datum;
+			this.left = left;
+			this.right = right;
+		}
+	}
+
 	@Override
 	public void add(T obj) {
 	}
