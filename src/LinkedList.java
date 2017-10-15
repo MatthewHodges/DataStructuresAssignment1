@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class LinkedList<T> implements Sequence<T> {
 	class ListNode<T> {
 		public T datum;
@@ -126,5 +128,10 @@ public class LinkedList<T> implements Sequence<T> {
 			}
 			return a;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return Arrays.toString(toArray());
 	}
 }
