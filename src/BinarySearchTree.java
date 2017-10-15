@@ -22,6 +22,10 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 
 	private TreeNode<T> head;
 
+	public BinarySearchTree() {
+		head = null;
+	}
+
 	@Override
 	public void add(T obj) {
 	}
@@ -37,7 +41,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 
 	@Override
 	public boolean isEmpty() {
-		return false;
+		return head == null;
 	}
 
 	@Override
