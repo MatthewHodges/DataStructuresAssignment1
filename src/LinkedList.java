@@ -1,0 +1,103 @@
+
+public class LinkedList<T> implements Sequence<T> {
+	class ListNode<T> {
+		public T datum;
+		public ListNode<T> next;
+		
+		public ListNode(){
+			this.datum = null;
+			this.next = null;
+		}
+
+		public ListNode(T datum, ListNode<T> next) {
+			this.datum = datum;
+			this.next = next;
+		}
+	}
+	
+	private ListNode<T> head;
+	private int size;
+	
+	public LinkedList() {
+		head = null;
+		size = 0;
+	}
+
+	@Override
+	public void add(T obj) {
+		head = add(head, obj);
+	}
+	
+	private ListNode<T> add(ListNode<T> head, T obj) {
+		if (head == null) {
+			head = new ListNode<T>(obj, null);
+		}
+		else {
+			head.next = add(head.next, obj);
+		}
+		return head;
+	}
+
+	@Override
+	public void add(int idx, T obj) throws IndexOutOfBoundsException {
+		if (idx >= this.size || idx < 0) {
+			throw new IndexOutOfBoundsException();
+		}
+		
+		
+	}
+
+	@Override
+	public void clear() {
+		
+		
+	}
+
+	@Override
+	public T get(int idx) throws IndexOutOfBoundsException {
+		
+		return null;
+	}
+
+	@Override
+	public boolean contains(T obj) {
+		
+		return false;
+	}
+
+	@Override
+	public int indexOf(T obj) {
+		
+		return 0;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		
+		return false;
+	}
+
+	@Override
+	public T remove(int idx) throws IndexOutOfBoundsException {
+		
+		return null;
+	}
+
+	@Override
+	public boolean remove(T obj) {
+		
+		return false;
+	}
+
+	@Override
+	public int size() {
+		
+		return 0;
+	}
+
+	@Override
+	public T[] toArray() {
+		
+		return null;
+	}
+}
