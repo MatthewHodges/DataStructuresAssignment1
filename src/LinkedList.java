@@ -67,13 +67,21 @@ public class LinkedList<T> implements Sequence<T> {
 
 	@Override
 	public int indexOf(T obj) {
-		
-		return 0;
+		return indexOf(head.next, obj);
+	}
+	
+	private int indexOf(ListNode<T> head, T obj) {
+		if (head.datum == obj){
+			return 0;
+		}
+		else {
+			return 1 + indexOf(head.next, obj);
+		}
 	}
 
 	@Override
 	public boolean isEmpty() {
-		
+
 		return false;
 	}
 
