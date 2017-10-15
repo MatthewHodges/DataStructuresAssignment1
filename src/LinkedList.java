@@ -102,8 +102,18 @@ public class LinkedList<T> implements Sequence<T> {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public T[] toArray() {
-
-		return null;
+		if (size == 0) {
+			return null;
+		}
+		else {
+			T[] a = (T[])new Object[size];
+			int i = 0;
+			for (ListNode<T> node = head; head != null; head = head.next) {
+				a[i++] = node.datum;
+			}
+			return a;
+		}
 	}
 }
