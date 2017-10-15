@@ -44,10 +44,17 @@ public class LinkedList<T> implements Sequence<T> {
 		if (idx >= this.size || idx < 0) {
 			throw new IndexOutOfBoundsException();
 		}
-
-
+		else {
+			add(head, idx, obj);
+		}
 	}
 
+	private void add(ListNode<T> head, int idx, T obj) {
+		if (idx == 0){
+			
+		}
+	}
+	
 	@Override
 	public void clear() {
 
