@@ -1,12 +1,12 @@
 public interface Sequence<T> {
- 
+
     /**
      * Adds the specified object to the end of the sequence.
      *
      * @param obj object to be appended to this sequence
      */
     void add(T obj);
- 
+
     /**
      * Adds the specified object at the given position in the sequence.
      *
@@ -16,12 +16,12 @@ public interface Sequence<T> {
      *         (index < 0 || index > size())
      */
     void add(int idx, T obj) throws IndexOutOfBoundsException;
- 
+
     /**
      * Removes all of the elements from the sequence.
      */
     void clear();
- 
+
     /**
      * Returns the object at the specified position in the sequence.
      *
@@ -31,7 +31,7 @@ public interface Sequence<T> {
      *         (index < 0 || index > size())
      */
     T get(int idx) throws IndexOutOfBoundsException;
- 
+
     /**
      * Returns {@code true} if the sequence contains the specified object and
      * {@code false} otherwise.
@@ -41,7 +41,7 @@ public interface Sequence<T> {
      *         {@code false} otherwise
      */
     boolean contains(T obj);
- 
+
     /**
      * Returns the index of the first occurrence of the specified object in
      * this sequence, or -1 if object is not present.
@@ -51,7 +51,7 @@ public interface Sequence<T> {
      *         this sequence, or -1 if object is not present
      */
     int indexOf(T obj);
- 
+
     /**
      * Returns {@code true} if the sequence is empty and {@code false}
      * otherwise.
@@ -60,7 +60,7 @@ public interface Sequence<T> {
      *         otherwise
      */
     boolean isEmpty();
- 
+
     /**
      * Removes the object at the specified position in the sequence.
      *
@@ -70,7 +70,7 @@ public interface Sequence<T> {
      *         (index < 0 || index > size())
      */
     T remove(int idx) throws IndexOutOfBoundsException;
- 
+
     /**
      * Remove the first occurrence of the specified object from the sequence,
      * if it is present.
@@ -80,14 +80,14 @@ public interface Sequence<T> {
      *         {@code false} otherwise
      */
     boolean remove(T obj);
- 
+
     /**
      * Returns the number of elements in the sequence.
      *
      * @return the number of elements in the sequence
      */
     int size();
- 
+
     /**
      * Returns an array containing all of the elements in the sequence in the
      * proper order (from first to last).
@@ -95,5 +95,5 @@ public interface Sequence<T> {
      * @return an array containing the elements of the sequence
      */
     T[] toArray();
- 
+
 }

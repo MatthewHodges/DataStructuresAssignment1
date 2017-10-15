@@ -3,7 +3,7 @@ public class LinkedList<T> implements Sequence<T> {
 	class ListNode<T> {
 		public T datum;
 		public ListNode<T> next;
-		
+
 		public ListNode(){
 			this.datum = null;
 			this.next = null;
@@ -14,10 +14,10 @@ public class LinkedList<T> implements Sequence<T> {
 			this.next = next;
 		}
 	}
-	
+
 	private ListNode<T> head;
 	private int size;
-	
+
 	public LinkedList() {
 		head = null;
 		size = 0;
@@ -27,7 +27,7 @@ public class LinkedList<T> implements Sequence<T> {
 	public void add(T obj) {
 		head = add(head, obj);
 	}
-	
+
 	private ListNode<T> add(ListNode<T> head, T obj) {
 		if (head == null) {
 			head = new ListNode<T>(obj, null);
@@ -43,25 +43,25 @@ public class LinkedList<T> implements Sequence<T> {
 		if (idx >= this.size || idx < 0) {
 			throw new IndexOutOfBoundsException();
 		}
-		
-		
+
+
 	}
 
 	@Override
 	public void clear() {
-		
-		
+
+
 	}
 
 	@Override
 	public T get(int idx) throws IndexOutOfBoundsException {
-		
+
 		return null;
 	}
 
 	@Override
 	public boolean contains(T obj) {
-		
+
 		return false;
 	}
 
@@ -69,7 +69,7 @@ public class LinkedList<T> implements Sequence<T> {
 	public int indexOf(T obj) {
 		return indexOf(head.next, obj);
 	}
-	
+
 	private int indexOf(ListNode<T> head, T obj) {
 		if (head.datum == obj){
 			return 0;
@@ -87,25 +87,25 @@ public class LinkedList<T> implements Sequence<T> {
 
 	@Override
 	public T remove(int idx) throws IndexOutOfBoundsException {
-		
+
 		return null;
 	}
 
 	@Override
 	public boolean remove(T obj) {
-		
+
 		return false;
 	}
 
 	@Override
 	public int size() {
-		
+
 		return 0;
 	}
 
 	@Override
 	public T[] toArray() {
-		
+
 		return null;
 	}
 }
