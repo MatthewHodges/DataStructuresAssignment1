@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	class TreeNode<T> {
 		public T datum;
@@ -52,7 +54,29 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public T[] toArray() {
-		return null;
+		if (isEmpty()) {
+			return null;
+		}
+		else {
+			T[] array = (T[])new Object[size()];
+			addToArray(root, array, 0);
+			return array;
+		}
+	}
+
+	private int addToArray(TreeNode<T> node, T[] array, int index) {
+		if (node != null) {
+			index = addToArray(node.left, array, index);
+			array[index] = node.datum;
+			index = addToArray(node.right, array, index+1);
+		}
+		return index;
+	}
+
+	@Override
+	public String toString() {
+		return Arrays.toString(toArray());
 	}
 }
