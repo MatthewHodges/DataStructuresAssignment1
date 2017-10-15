@@ -60,8 +60,19 @@ public class LinkedList<T> implements Sequence<T> {
 
 	@Override
 	public boolean contains(T obj) {
-
-		return false;
+		return contains(head, obj);
+	}
+	
+	private boolean contains(ListNode<T> head, T obj) {
+		if (head == null) {
+			return false;
+		}
+		else if (head.datum == obj) {
+			return true;
+		}
+		else {
+			return contains(head.next, obj);
+		}
 	}
 
 	@Override
