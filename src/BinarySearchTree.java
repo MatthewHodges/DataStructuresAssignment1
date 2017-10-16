@@ -27,6 +27,20 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 
 	@Override
 	public void add(T obj) {
+		root = add(root, obj);
+	}
+
+	private TreeNode<T> add(TreeNode<T> node, T obj) {
+		if (node == null) {
+			node = new TreeNode<T>(obj, null, null);
+		}
+		else if (obj.compareTo(node.datum) < 0) {
+			node.left = add(node.left, obj);
+		}
+		else if (obj.compareTo(node.datum) > 0) {
+			node.right = add(node.right, obj);
+		}
+		return node;
 	}
 
 	@Override
