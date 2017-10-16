@@ -118,8 +118,12 @@ public class LinkedList<T> implements Sequence<T> {
 
 	@Override
 	public boolean isEmpty() {
-
-		return false;
+		if (size == 0){
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	@Override
