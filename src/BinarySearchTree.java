@@ -75,6 +75,51 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 
 	@Override
 	public void remove(T obj) {
+		root = remove(root, obj);
+	}
+
+	private TreeNode<T> remove(TreeNode<T> node, T obj) {
+		if (node != null) {
+			if (obj.compareTo(node.datum) == 0) {
+				if (node.left == null && node.right == null) {
+					node = null;
+				}
+				else if (node.left == null) {
+					node = node.right;
+				}
+				else if (node.right == null) {
+					node = node.left;
+				}
+				else {
+					TreeNode<T> smallest = getSmallestNode(node.right);
+					T tmp = node.datum;
+					node.datum = smallest.datum;
+					smallest.datum = tmp;
+					node.right = remove(node.right, obj);
+				}
+			}
+			else {
+				if (obj.compareTo(node.datum) < 0) {
+					node.left = remove(node.left, obj);
+				}
+				else {
+					node.right = remove(node.right, obj);
+				}
+			}
+		}
+		return node;
+	}
+
+	private TreeNode<T> getSmallestNode(TreeNode<T> node) {
+		if (node == null) {
+			return node;
+		}
+		else if (node.left == null) {
+			return node;
+		}
+		else {
+			return node.left;
+		}
 	}
 
 	@Override
