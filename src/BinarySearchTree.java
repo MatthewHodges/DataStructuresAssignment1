@@ -50,7 +50,22 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 
 	@Override
 	public boolean contains(T obj) {
-		return false;
+		return contains(root, obj);
+	}
+
+	private boolean contains(TreeNode<T> node, T obj) {
+		if (node == null) {
+			return false;
+		}
+		else if (obj.compareTo(node.datum) < 0) {
+			return contains(node.left, obj);
+		}
+		else if (obj.compareTo(node.datum) > 0) {
+			return contains(node.right, obj);
+		}
+		else {
+			return true;
+		}
 	}
 
 	@Override
