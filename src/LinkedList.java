@@ -30,14 +30,14 @@ public class LinkedList<T> implements Sequence<T> {
 		size += 1;
 	}
 
-	private ListNode<T> add(ListNode<T> head, T obj) {
-		if (head == null) {
-			head = new ListNode<T>(obj, null);
+	private ListNode<T> add(ListNode<T> node, T obj) {
+		if (node == null) {
+			node = new ListNode<T>(obj, null);
 		}
 		else {
-			head.next = add(head.next, obj);
+			node.next = add(node.next, obj);
 		}
-		return head;
+		return node;
 	}
 
 	@Override
@@ -50,16 +50,16 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 	}
 
-	private ListNode<T> add(ListNode<T> head, int idx, T obj) {
+	private ListNode<T> add(ListNode<T> node, int idx, T obj) {
 		if (idx == 0) {
 			size += 1;
-			return new ListNode<T>(obj, head);
+			return new ListNode<T>(obj, node);
 		}
 		else {
-			return add(head.next, idx - 1, obj);
+			return add(node.next, idx - 1, obj);
 		}
 	}
-	
+
 	@Override
 	public void clear() {
 		head = null;
@@ -75,13 +75,13 @@ public class LinkedList<T> implements Sequence<T> {
 			return get(head, idx);
 		}
 	}
-	
-	private T get(ListNode<T> head, int idx){
+
+	private T get(ListNode<T> node, int idx){
 		if (idx == 0) {
-			return head.datum;
+			return node.datum;
 		}
 		else {
-			return get(head.next, idx - 1);
+			return get(node.next, idx - 1);
 		}
 	}
 
@@ -89,16 +89,16 @@ public class LinkedList<T> implements Sequence<T> {
 	public boolean contains(T obj) {
 		return contains(head, obj);
 	}
-	
-	private boolean contains(ListNode<T> head, T obj) {
-		if (head == null) {
+
+	private boolean contains(ListNode<T> node, T obj) {
+		if (node == null) {
 			return false;
 		}
-		else if (head.datum == obj) {
+		else if (node.datum == obj) {
 			return true;
 		}
 		else {
-			return contains(head.next, obj);
+			return contains(node.next, obj);
 		}
 	}
 
@@ -107,12 +107,12 @@ public class LinkedList<T> implements Sequence<T> {
 		return indexOf(head.next, obj);
 	}
 
-	private int indexOf(ListNode<T> head, T obj) {
-		if (head.datum == obj){
+	private int indexOf(ListNode<T> node, T obj) {
+		if (node.datum == obj){
 			return 0;
 		}
 		else {
-			return 1 + indexOf(head.next, obj);
+			return 1 + indexOf(node.next, obj);
 		}
 	}
 
@@ -152,7 +152,7 @@ public class LinkedList<T> implements Sequence<T> {
 		else {
 			T[] a = (T[])new Object[size];
 			int i = 0;
-			for (ListNode<T> node = head; head != null; head = head.next) {
+			for (ListNode<T> node = head; node != null; node = node.next) {
 				a[i++] = node.datum;
 			}
 			return a;
