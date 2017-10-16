@@ -27,6 +27,7 @@ public class LinkedList<T> implements Sequence<T> {
 	@Override
 	public void add(T obj) {
 		head = add(head, obj);
+		size += 1;
 	}
 
 	private ListNode<T> add(ListNode<T> head, T obj) {
@@ -41,7 +42,7 @@ public class LinkedList<T> implements Sequence<T> {
 
 	@Override
 	public void add(int idx, T obj) throws IndexOutOfBoundsException {
-		if (idx >= this.size || idx < 0) {
+		if (idx > this.size || idx < 0) {
 			throw new IndexOutOfBoundsException();
 		}
 		else {
@@ -51,6 +52,7 @@ public class LinkedList<T> implements Sequence<T> {
 
 	private ListNode<T> add(ListNode<T> head, int idx, T obj) {
 		if (idx == 0) {
+			size += 1;
 			return new ListNode<T>(obj, head);
 		}
 		else {
@@ -60,14 +62,27 @@ public class LinkedList<T> implements Sequence<T> {
 	
 	@Override
 	public void clear() {
-
-
+		head = null;
+		size = 0;
 	}
 
 	@Override
 	public T get(int idx) throws IndexOutOfBoundsException {
-
-		return null;
+		if (idx >= this.size || idx < 0) {
+			throw new IndexOutOfBoundsException();
+		}
+		else {
+			return get(head, idx);
+		}
+	}
+	
+	private T get(ListNode<T> head, int idx){
+		if (idx == 0) {
+			return head.datum;
+		}
+		else {
+			return get(head.next, idx - 1);
+		}
 	}
 
 	@Override
