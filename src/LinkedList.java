@@ -45,13 +45,16 @@ public class LinkedList<T> implements Sequence<T> {
 			throw new IndexOutOfBoundsException();
 		}
 		else {
-			add(head, idx, obj);
+			head = add(head, idx, obj);
 		}
 	}
 
-	private void add(ListNode<T> head, int idx, T obj) {
-		if (idx == 0){
-			
+	private ListNode<T> add(ListNode<T> head, int idx, T obj) {
+		if (idx == 0) {
+			return new ListNode<T>(obj, head);
+		}
+		else {
+			return add(head.next, idx - 1, obj);
 		}
 	}
 	
