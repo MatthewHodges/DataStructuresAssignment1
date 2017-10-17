@@ -128,14 +128,48 @@ public class LinkedList<T> implements Sequence<T> {
 
 	@Override
 	public T remove(int idx) throws IndexOutOfBoundsException {
-
-		return null;
+		if (idx >= this.size || idx < 0) {
+			throw new IndexOutOfBoundsException();
+		}
+		else {
+			ListNode<T> node = head;
+			if (idx == 0) {
+				head = head.next;
+				return node.datum;
+			}
+			else {
+				for (int i = 0; i < idx - 1; i++) {
+					node = head.next;
+				}
+				ListNode<T> temp = node.next;
+				node.next = node.next.next;
+				return temp.datum;
+			}
+		}
 	}
 
 	@Override
 	public boolean remove(T obj) {
-
-		return false;
+		if (head == null) {
+			return false;
+		}
+		else if (head.datum == obj) {
+			head = head.next;
+			return true;
+		}
+		else {
+			ListNode<T> node = head;
+			while (node.next != null && node.next.datum != obj) {
+				node = node.next;
+			}
+			if (node.next == null) {
+				return false;
+			}
+			else {
+				node.next = node.next.next;
+				return true;
+			}
+		}
 	}
 
 	@Override
