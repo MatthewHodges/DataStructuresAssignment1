@@ -130,14 +130,9 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	@Override
 	@SuppressWarnings("unchecked")
 	public T[] toArray() {
-		if (isEmpty()) {
-			return null;
-		}
-		else {
-			T[] array = (T[])new Object[size()];
-			addToArray(root, array, 0);
-			return array;
-		}
+		T[] array = (T[])new Object[size()];
+		addToArray(root, array, 0);
+		return array;
 	}
 
 	private int addToArray(TreeNode<T> node, T[] array, int index) {
