@@ -135,7 +135,6 @@ public class LinkedList<T> implements Sequence<T> {
 			ListNode<T> node = head;
 			if (idx == 0) {
 				head = head.next;
-				return node.datum;
 			}
 			else {
 				for (int i = 0; i < idx - 1; i++) {
@@ -143,8 +142,10 @@ public class LinkedList<T> implements Sequence<T> {
 				}
 				ListNode<T> temp = node.next;
 				node.next = node.next.next;
-				return temp.datum;
+				node = temp;
 			}
+			this.size -= 1;
+			return node.datum;
 		}
 	}
 
@@ -155,6 +156,7 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 		else if (head.datum == obj) {
 			head = head.next;
+			this.size -= 1;
 			return true;
 		}
 		else {
@@ -167,6 +169,7 @@ public class LinkedList<T> implements Sequence<T> {
 			}
 			else {
 				node.next = node.next.next;
+				this.size -= 1;
 				return true;
 			}
 		}
