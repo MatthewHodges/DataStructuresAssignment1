@@ -47,16 +47,17 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 		else {
 			head = add(head, idx, obj);
+			this.size += 1;
 		}
 	}
 
 	private ListNode<T> add(ListNode<T> node, int idx, T obj) {
 		if (idx == 0) {
-			size += 1;
 			return new ListNode<T>(obj, node);
 		}
 		else {
-			return add(node.next, idx - 1, obj);
+			node.next = add(node.next, idx - 1, obj);
+			return node;
 		}
 	}
 
