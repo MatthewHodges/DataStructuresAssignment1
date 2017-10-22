@@ -104,15 +104,22 @@ public class LinkedList<T> implements Sequence<T> {
 
 	@Override
 	public int indexOf(T obj) {
-		return indexOf(head.next, obj);
+		return indexOf(head, obj);
 	}
 
 	private int indexOf(ListNode<T> node, T obj) {
-		if (node.datum == obj){
+		if (node == null) {
+			return -1;
+		}
+		else if (node.datum == obj){
 			return 0;
 		}
 		else {
-			return 1 + indexOf(node.next, obj);
+			int index = indexOf(node.next, obj);
+			if (index >= 0) {
+				index += 1;
+			}
+			return index;
 		}
 	}
 
