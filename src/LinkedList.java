@@ -145,7 +145,7 @@ public class LinkedList<T> implements Sequence<T> {
 			}
 			else {
 				for (int i = 0; i < idx - 1; i++) {
-					node = head.next;
+					node = node.next;
 				}
 				ListNode<T> temp = node.next;
 				node.next = node.next.next;
