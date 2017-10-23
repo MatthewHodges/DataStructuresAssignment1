@@ -24,6 +24,13 @@ public class LinkedList<T> implements Sequence<T> {
 		size = 0;
 	}
 
+	/**
+	 * Adds the specified object to the end of the sequence.
+	 * Worst case: O(n)
+	 * since it will recurse to the end to add a new object
+	 *
+	 * @param obj object to be appended to this sequence
+	 */
 	@Override
 	public void add(T obj) {
 		head = add(head, obj);
@@ -40,6 +47,16 @@ public class LinkedList<T> implements Sequence<T> {
 		return node;
 	}
 
+	/**
+	 * Adds the specified object at the given position in the sequence.
+	 * Worst case: O(n)
+	 * since it will recurse to the end to add at the end
+	 *
+	 * @param idx index at which the specified object is to be inserted
+	 * @param obj object to be appended to this sequence
+	 * @throws IndexOutOfBoundsException if the index is out of range
+	 *         (index < 0 || index > size())
+	 */
 	@Override
 	public void add(int idx, T obj) throws IndexOutOfBoundsException {
 		if (idx > this.size || idx < 0) {
@@ -61,12 +78,27 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 	}
 
+	/**
+	 * Removes all of the elements from the sequence.
+	 * Worst case: O(1)
+	 * since setting the references is constant time
+	 */
 	@Override
 	public void clear() {
 		head = null;
 		size = 0;
 	}
 
+	/**
+	 * Returns the object at the specified position in the sequence.
+	 * Worst case: O(n)
+	 * if it needs to get the last item it has to recurse to the end
+	 *
+	 * @param idx index of the element to return
+	 * @return the object at the specified position in the sequence
+	 * @throws IndexOutOfBoundsException if the index is out of range
+	 *         (index < 0 || index > size())
+	 */
 	@Override
 	public T get(int idx) throws IndexOutOfBoundsException {
 		if (idx >= this.size || idx < 0) {
@@ -86,11 +118,32 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 	}
 
+	/**
+	 * Returns {@code true} if the sequence contains the specified object and
+	 * {@code false} otherwise.
+	 * Worst case: O(n)
+	 * since it just calls indexOf (see indexOf)
+	 *
+	 * @param obj the object to find in the sequence
+	 * @return {@code true} if the sequence contains the specified object and
+	 *         {@code false} otherwise
+	 */
 	@Override
 	public boolean contains(T obj) {
 		return indexOf(obj) >= 0;
 	}
 
+	/**
+	 * Returns the index of the first occurrence of the specified object in
+	 * this sequence, or -1 if object is not present.
+	 * Worst case: O(n)
+	 * If the object is the last item (or not present) it will have to recurse
+	 * to the end
+	 *
+	 * @param obj the object to find in the sequence
+	 * @return the index of the first occurrence of the specified object in
+	 *         this sequence, or -1 if object is not present
+	 */
 	@Override
 	public int indexOf(T obj) {
 		return indexOf(head, obj);
@@ -112,16 +165,30 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 	}
 
+	/**
+	 * Returns {@code true} if the sequence is empty and {@code false}
+	 * otherwise.
+	 * Worst case: O(1)
+	 * With a size varible it only needs to check if the size variable equals 0
+	 *
+	 * @return {@code true} if the sequence is empty and {@code false}
+	 *         otherwise
+	 */
 	@Override
 	public boolean isEmpty() {
-		if (size == 0){
-			return true;
-		}
-		else {
-			return false;
-		}
+		return size() == 0;
 	}
 
+	/**
+	 * Removes the object at the specified position in the sequence.
+	 * Worst case: O(n)
+	 * If the item is the last item it will have to iterate to the end
+	 *
+	 * @param idx index of the element to remove
+	 * @return the object previously at the specified position
+	 * @throws IndexOutOfBoundsException if the index is out of range
+	 *         (index < 0 || index > size())
+	 */
 	@Override
 	public T remove(int idx) throws IndexOutOfBoundsException {
 		if (idx >= this.size || idx < 0) {
@@ -145,6 +212,17 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 	}
 
+	/**
+	 * Remove the first occurrence of the specified object from the sequence,
+	 * if it is present.
+	 * Worst case: O(n)
+	 * If the item is the last item (or not present) it will have to iterate to
+	 * the end
+	 *
+	 * @param obj the object to remove
+	 * @return {@code true} if the sequence contained the specified object and
+	 *         {@code false} otherwise
+	 */
 	@Override
 	public boolean remove(T obj) {
 		if (head == null) {
@@ -171,11 +249,26 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 	}
 
+	/**
+	 * Returns the number of elements in the sequence.
+	 * Worst case: O(1)
+	 * With a size variable checking the size is constant time
+	 *
+	 * @return the number of elements in the sequence
+	 */
 	@Override
 	public int size() {
 		return size;
 	}
 
+	/**
+	 * Returns an array containing all of the elements in the sequence in the
+	 * proper order (from first to last).
+	 * Worst case: O(n)
+	 * Creating an array requires getting all elements
+	 *
+	 * @return an array containing the elements of the sequence
+	 */
 	@Override
 	public Object[] toArray() {
 		if (isEmpty()) {
