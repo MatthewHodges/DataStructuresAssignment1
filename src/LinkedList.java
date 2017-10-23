@@ -191,16 +191,26 @@ public class LinkedList<T> implements Sequence<T> {
 	@Override
 	@SuppressWarnings("unchecked")
 	public T[] toArray() {
-		T[] array = (T[])new Object[size];
-		int i = 0;
-		for (ListNode<T> node = head; node != null; node = node.next) {
-			array[i++] = node.datum;
+		if (isEmpty()) {
+			return null;
 		}
-		return array;
+		else {
+			T[] array = (T[])new Object[size];
+			int i = 0;
+			for (ListNode<T> node = head; node != null; node = node.next) {
+				array[i++] = node.datum;
+			}
+			return array;
+		}
 	}
 
 	@Override
 	public String toString() {
-		return Arrays.toString(toArray());
+		if (isEmpty()) {
+			return "[]";
+		}
+		else {
+			return Arrays.toString(toArray());
+		}
 	}
 }
