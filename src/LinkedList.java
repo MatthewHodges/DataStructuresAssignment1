@@ -95,7 +95,7 @@ public class LinkedList<T> implements Sequence<T> {
 		if (node == null) {
 			return false;
 		}
-		else if (node.datum == obj) {
+		else if (node.datum.equals(obj)) {
 			return true;
 		}
 		else {
@@ -112,7 +112,7 @@ public class LinkedList<T> implements Sequence<T> {
 		if (node == null) {
 			return -1;
 		}
-		else if (node.datum == obj){
+		else if (node.datum.equals(obj)){
 			return 0;
 		}
 		else {
@@ -162,14 +162,14 @@ public class LinkedList<T> implements Sequence<T> {
 		if (head == null) {
 			return false;
 		}
-		else if (head.datum == obj) {
+		else if (head.datum.equals(obj)) {
 			head = head.next;
 			this.size -= 1;
 			return true;
 		}
 		else {
 			ListNode<T> node = head;
-			while (node.next != null && node.next.datum != obj) {
+			while (node.next != null && !node.next.datum.equals(obj)) {
 				node = node.next;
 			}
 			if (node.next == null) {
