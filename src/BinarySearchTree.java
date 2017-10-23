@@ -20,9 +20,11 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	}
 
 	private TreeNode<T> root;
+	private int size;
 
 	public BinarySearchTree() {
 		root = null;
+		size = 0;
 	}
 
 	@Override
@@ -33,6 +35,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	private TreeNode<T> add(TreeNode<T> node, T obj) {
 		if (node == null) {
 			node = new TreeNode<T>(obj, null, null);
+			this.size += 1;
 		}
 		else if (obj.compareTo(node.datum) < 0) {
 			node.left = add(node.left, obj);
@@ -46,6 +49,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	@Override
 	public void clear() {
 		root = null;
+		size = 0;
 	}
 
 	@Override
@@ -70,7 +74,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 
 	@Override
 	public boolean isEmpty() {
-		return root == null;
+		return size == 0;
 	}
 
 	@Override
@@ -83,12 +87,15 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 			if (obj.compareTo(node.datum) == 0) {
 				if (node.left == null && node.right == null) {
 					node = null;
+					this.size -= 1;
 				}
 				else if (node.left == null) {
 					node = node.right;
+					this.size -= 1;
 				}
 				else if (node.right == null) {
 					node = node.left;
+					this.size -= 1;
 				}
 				else {
 					TreeNode<T> smallest = getSmallestNode(node.right);
@@ -124,7 +131,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 
 	@Override
 	public int size() {
-		return 0;
+		return size;
 	}
 
 	@Override
