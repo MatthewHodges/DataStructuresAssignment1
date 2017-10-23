@@ -60,6 +60,6 @@ public interface Set<T> {
      *
      * @return an array containing the objects in the set
      */
-    T[] toArray();
+    Object[] toArray();
 
 }

@@ -189,13 +189,12 @@ public class LinkedList<T> implements Sequence<T> {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public T[] toArray() {
+	public Object[] toArray() {
 		if (isEmpty()) {
 			return null;
 		}
 		else {
-			T[] array = (T[])new Object[size];
+			Object[] array = new Object[size];
 			int i = 0;
 			for (ListNode<T> node = head; node != null; node = node.next) {
 				array[i++] = node.datum;
