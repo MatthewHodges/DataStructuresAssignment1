@@ -78,8 +78,10 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	}
 
 	@Override
-	public void remove(T obj) {
+	public boolean remove(T obj) {
+		int size = size();
 		root = remove(root, obj);
+		return size() < size; // checks if the object was removed
 	}
 
 	private TreeNode<T> remove(TreeNode<T> node, T obj) {
