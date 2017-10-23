@@ -27,6 +27,14 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		size = 0;
 	}
 
+	/**
+	 * Adds the specified object to the set.
+	 * Worst case: O(n)
+	 * If the tree is structured like a linked list (due to insert order)
+	 * adding an element to the end requires recursing through every element
+	 *
+	 * @param obj object to be added to the set
+	 */
 	@Override
 	public void add(T obj) {
 		root = add(root, obj);
@@ -46,12 +54,29 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		return node;
 	}
 
+	/**
+	 * Removes all of the elements from the set.
+	 * Worst case: O(1)
+	 * since setting the references is constant time
+	 */
 	@Override
 	public void clear() {
 		root = null;
 		size = 0;
 	}
 
+	/**
+	 * Returns {@code true} if the set contains the specified object and
+	 * {@code false} otherwise.
+	 * Worst case: O(n)
+	 * If the tree is structured like a linked list (due to insert order)
+	 * checking the last element (or a non-existant element) requires recursing
+	 * through every element
+	 *
+	 * @param obj the object to find in the set
+	 * @return {@code true} if the set contains the specified object and
+	 *         {@code false} otherwise
+	 */
 	@Override
 	public boolean contains(T obj) {
 		return contains(root, obj);
@@ -72,11 +97,28 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		}
 	}
 
+	/**
+	 * Returns {@code true} if the set is empty and {@code false} otherwise.
+	 * Worst case: O(1)
+	 * With a size varible it only needs to check if the size variable equals 0
+	 *
+	 * @return {@code true} if the set is empty and {@code false} otherwise
+	 */
 	@Override
 	public boolean isEmpty() {
-		return size == 0;
+		return size() == 0;
 	}
 
+	/**
+	 * Remove the specified object from the set, if it is present.
+	 * Worst case: O(n)
+	 * If the tree is structured like a linked list (due to insert order)
+	 * removing the last element requires recursing through every element
+	 *
+	 * @param obj the object to remove
+	 * @return {@code true} if the set contained the specified object and
+	 *         {@code false} otherwise
+	 */
 	@Override
 	public boolean remove(T obj) {
 		int size = size();
@@ -131,11 +173,26 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		}
 	}
 
+	/**
+	 * Returns the number of elements in the set.
+	 * Worst case: O(1)
+	 * With a size variable checking the size is constant time
+	 *
+	 * @return the number of elements in the set
+	 */
 	@Override
 	public int size() {
 		return size;
 	}
 
+	/**
+	 * Returns an array containing all of the objects in the set in the proper
+	 * order (from least to greatest).
+	 * Worst case: O(n)
+	 * Creating an array requires getting all elements
+	 *
+	 * @return an array containing the objects in the set
+	 */
 	@Override
 	public Object[] toArray() {
 		if (isEmpty()) {
