@@ -88,19 +88,7 @@ public class LinkedList<T> implements Sequence<T> {
 
 	@Override
 	public boolean contains(T obj) {
-		return contains(head, obj);
-	}
-
-	private boolean contains(ListNode<T> node, T obj) {
-		if (node == null) {
-			return false;
-		}
-		else if (node.datum.equals(obj)) {
-			return true;
-		}
-		else {
-			return contains(node.next, obj);
-		}
+		return indexOf(obj) >= 0;
 	}
 
 	@Override
