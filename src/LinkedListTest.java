@@ -1,5 +1,3 @@
-// run with "java -ea LinkedListTest"
-
 class LinkedListTest {
     public static void main(String[] args) {
         boolean passed = testAdd();
