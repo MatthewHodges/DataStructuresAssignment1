@@ -1,22 +1,22 @@
 import java.util.Arrays;
 
 public class LinkedList<T> implements Sequence<T> {
-	class ListNode<T> {
+	class ListNode {
 		public T datum;
-		public ListNode<T> next;
+		public ListNode next;
 
 		public ListNode(){
 			this.datum = null;
 			this.next = null;
 		}
 
-		public ListNode(T datum, ListNode<T> next) {
+		public ListNode(T datum, ListNode next) {
 			this.datum = datum;
 			this.next = next;
 		}
 	}
 
-	private ListNode<T> head;
+	private ListNode head;
 	private int size;
 
 	public LinkedList() {
@@ -28,7 +28,7 @@ public class LinkedList<T> implements Sequence<T> {
 		head = null;
 		size = array.length;
 		for (int i = size-1; i >= 0; i--) {
-			head = new ListNode<T>(array[i], head);
+			head = new ListNode(array[i], head);
 		}
 	}
 
@@ -45,9 +45,9 @@ public class LinkedList<T> implements Sequence<T> {
 		size += 1;
 	}
 
-	private ListNode<T> add(ListNode<T> node, T obj) {
+	private ListNode add(ListNode node, T obj) {
 		if (node == null) {
-			node = new ListNode<T>(obj, null);
+			node = new ListNode(obj, null);
 		}
 		else {
 			node.next = add(node.next, obj);
@@ -76,9 +76,9 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 	}
 
-	private ListNode<T> add(ListNode<T> node, int idx, T obj) {
+	private ListNode add(ListNode node, int idx, T obj) {
 		if (idx == 0) {
-			return new ListNode<T>(obj, node);
+			return new ListNode(obj, node);
 		}
 		else {
 			node.next = add(node.next, idx - 1, obj);
@@ -117,7 +117,7 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 	}
 
-	private T get(ListNode<T> node, int idx){
+	private T get(ListNode node, int idx){
 		if (idx == 0) {
 			return node.datum;
 		}
@@ -157,7 +157,7 @@ public class LinkedList<T> implements Sequence<T> {
 		return indexOf(head, obj);
 	}
 
-	private int indexOf(ListNode<T> node, T obj) {
+	private int indexOf(ListNode node, T obj) {
 		if (node == null) {
 			return -1;
 		}
@@ -203,7 +203,7 @@ public class LinkedList<T> implements Sequence<T> {
 			throw new IndexOutOfBoundsException();
 		}
 		else {
-			ListNode<T> node = head;
+			ListNode node = head;
 			if (idx == 0) {
 				head = head.next;
 			}
@@ -211,7 +211,7 @@ public class LinkedList<T> implements Sequence<T> {
 				for (int i = 0; i < idx - 1; i++) {
 					node = node.next;
 				}
-				ListNode<T> temp = node.next;
+				ListNode temp = node.next;
 				node.next = node.next.next;
 				node = temp;
 			}
@@ -242,7 +242,7 @@ public class LinkedList<T> implements Sequence<T> {
 			return true;
 		}
 		else {
-			ListNode<T> node = head;
+			ListNode node = head;
 			while (node.next != null && !node.next.datum.equals(obj)) {
 				node = node.next;
 			}
@@ -285,7 +285,7 @@ public class LinkedList<T> implements Sequence<T> {
 		else {
 			Object[] array = new Object[size];
 			int i = 0;
-			for (ListNode<T> node = head; node != null; node = node.next) {
+			for (ListNode node = head; node != null; node = node.next) {
 				array[i++] = node.datum;
 			}
 			return array;

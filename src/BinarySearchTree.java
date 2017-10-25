@@ -1,10 +1,10 @@
 import java.util.Arrays;
 
 class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
-	class TreeNode<T> {
+	class TreeNode {
 		public T datum;
-		public TreeNode<T> left;
-		public TreeNode<T> right;
+		public TreeNode left;
+		public TreeNode right;
 
 		public TreeNode() {
 			this.datum = null;
@@ -12,14 +12,14 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 			this.right = null;
 		}
 
-		public TreeNode(T datum, TreeNode<T> left, TreeNode<T> right) {
+		public TreeNode(T datum, TreeNode left, TreeNode right) {
 			this.datum = datum;
 			this.left = left;
 			this.right = right;
 		}
 	}
 
-	private TreeNode<T> root;
+	private TreeNode root;
 	private int size;
 
 	public BinarySearchTree() {
@@ -48,9 +48,9 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		root = add(root, obj);
 	}
 
-	private TreeNode<T> add(TreeNode<T> node, T obj) {
+	private TreeNode add(TreeNode node, T obj) {
 		if (node == null) {
-			node = new TreeNode<T>(obj, null, null);
+			node = new TreeNode(obj, null, null);
 			this.size += 1;
 		}
 		else if (obj.compareTo(node.datum) < 0) {
@@ -90,7 +90,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		return contains(root, obj);
 	}
 
-	private boolean contains(TreeNode<T> node, T obj) {
+	private boolean contains(TreeNode node, T obj) {
 		if (node == null) {
 			return false;
 		}
@@ -134,7 +134,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		return size() < size; // checks if the object was removed
 	}
 
-	private TreeNode<T> remove(TreeNode<T> node, T obj) {
+	private TreeNode remove(TreeNode node, T obj) {
 		if (node != null) {
 			if (obj.compareTo(node.datum) == 0) {
 				if (node.left == null && node.right == null) {
@@ -150,7 +150,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 					this.size -= 1;
 				}
 				else {
-					TreeNode<T> smallest = getSmallestNode(node.right);
+					TreeNode smallest = getSmallestNode(node.right);
 					T tmp = node.datum;
 					node.datum = smallest.datum;
 					smallest.datum = tmp;
@@ -169,7 +169,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		return node;
 	}
 
-	private TreeNode<T> getSmallestNode(TreeNode<T> node) {
+	private TreeNode getSmallestNode(TreeNode node) {
 		if (node == null) {
 			return node;
 		}
@@ -213,7 +213,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		}
 	}
 
-	private int addToArray(TreeNode<T> node, Object[] array, int index) {
+	private int addToArray(TreeNode node, Object[] array, int index) {
 		if (node != null) {
 			index = addToArray(node.left, array, index);
 			array[index] = node.datum;
