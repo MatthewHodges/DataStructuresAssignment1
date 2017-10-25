@@ -17,9 +17,9 @@ class LinkedListTest {
         assert one.equals(1) && five.equals(5) && nine.equals(9)
             : "Failed to get objects properly: %s".format(list.toString());
         // Test remove object
-        list.remove(nine);
-        list.remove(one);
-        list.remove(five);
+        assert list.remove(new Integer(9)) & list.remove(new Integer(1))
+            & list.remove(new Integer(5)) & !list.remove(new Integer(20))
+            : "Failed to remove objects correctly: %s".format(list.toString());
         assert list.toString().equals("[8, 7, 6, 4, 3, 2]")
             : "Failed to remove objects correctly: %s".format(list.toString());
         // Test contains
@@ -33,9 +33,11 @@ class LinkedListTest {
         // Test isEmpty
         assert !list.isEmpty()
             : "Failed to check if list was empty correctly: %s".format(list.toString());
-        // Test remove from index
-        list.remove(0);
-        list.remove(4);
+        // Test remove from index (...)
+        Integer eight = list.remove(0);
+        Integer two = list.remove(4);
+        assert eight.equals(8) && two.equals(2)
+            : "Failed to remove indices correctly: %s".format(list.toString());
         assert list.toString().equals("[7, 6, 4, 3]")
             : "Failed to remove indices correctly: %s".format(list.toString());
         // Test size
