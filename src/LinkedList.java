@@ -24,6 +24,14 @@ public class LinkedList<T> implements Sequence<T> {
 		size = 0;
 	}
 
+	public LinkedList(T[] array) {
+		head = null;
+		size = array.length;
+		for (int i = size-1; i >= 0; i--) {
+			head = new ListNode<T>(array[i], head);
+		}
+	}
+
 	/**
 	 * Adds the specified object to the end of the sequence.
 	 * Worst case: O(n)

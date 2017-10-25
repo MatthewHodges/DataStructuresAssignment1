@@ -27,6 +27,14 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		size = 0;
 	}
 
+	public BinarySearchTree(T[] array) {
+		root = null;
+		size = 0;
+		for (T item: array) {
+			add(item);
+		}
+	}
+
 	/**
 	 * Adds the specified object to the set.
 	 * Worst case: O(n)
