@@ -1,0 +1,33 @@
+The LinkedListTest class runs a number of tests on each method of the LinkedList class. (full is used to mean a list with elements in it)
+
+testAdd
+- Fills the list using add(T) and checks the toString of the full list.
+- Creates another list and adds elements using add(int, T) including at the front of the list, back of the list, and in the middle. The result is checked using toString.
+
+testGet
+- Gets items from a full list's indices. Items are retrieved from the front, back, and middle and compared to the expected values.
+
+testRemove
+- Removes specific objects from the list using remove(T). Checks that remove returns the expected value (whether the object was removed) and the final value of the list using toString. A remove attempt is made for an object that is not present as well.
+- Removes objects at specific indices (front and back) and checks that the expected objects were removed as well as the final value of the list (using toString).
+
+testContains
+- Checks the return values of checking the presence of objects in the list from the beginning, end, and middle of the list as well as a non-present object.
+
+testIndexOf
+- Checks the index of objects in and not in the list using the same test cases as testContains.
+
+testIsEmpty
+- Checks the empty status of a full and empty list.
+
+testSize
+- Checks the sizes of an empty list, a list with 1 element and a list with 9.
+
+testClear
+- Fills the list and empties it, checking the final status using isEmpty and the toString.
+
+testExceptions
+- Tests the methods that throw IndexOutOfBoundsExceptions to ensure that they throw the exceptions at the correct times (incorrect times would have been caught by previous tests). All tests test the indices 1 before the first valid index and 1 after the last valid index on a list of length 1.
+- Tests add(int, T).
+- Tests get(int).
+- Tests remove(int).
