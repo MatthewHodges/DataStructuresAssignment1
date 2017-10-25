@@ -46,8 +46,8 @@ class BSTtester{
 		Integer[] lst = {7, 3, 19, 4, 5, 4, 100, 6, 17};
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(lst);
 		tree.clear();
-		boolean passed = testMethod("add test", tree.toString().equals("[]"));
-		return testMethod("clear test", tree.size() == 0) && passed;
+		boolean passed = testMethod("clear test 1", tree.toString().equals("[]"));
+		return testMethod("clear test 2", tree.size() == 0) && passed;
 	}
 	
 	public static boolean testContains(){
