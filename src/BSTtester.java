@@ -91,5 +91,16 @@ class BSTtester{
 		
 		return testMethod("size test", passed);
 	}
+	
+	public static boolean testToArray() {
+		Integer[] lst = {3, 4, 5, 6, 18, 100};
+		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(lst);
+		Integer[] lst2 = (Integer[])tree.toArray();
+		boolean passed = true;
+		for (int x = 0; x < 6; x++) {
+			passed &= lst[x] == lst2[x];
+		}
+		return testMethod("toArray test", passed);
+	}
 		
 }
