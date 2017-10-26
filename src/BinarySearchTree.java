@@ -79,7 +79,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	 * {@code false} otherwise.
 	 * Worst case: O(n)
 	 * If the tree is structured like a linked list (due to insert order)
-	 * checking the last element (or a non-existant element) requires recursing
+	 * checking the last element (or a non-existent element) requires recursing
 	 * through every element
 	 *
 	 * @param obj the object to find in the set
@@ -109,7 +109,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	/**
 	 * Returns {@code true} if the set is empty and {@code false} otherwise.
 	 * Worst case: O(1)
-	 * With a size varible it only needs to check if the size variable equals 0
+	 * With a size variable it only needs to check if the size variable equals 0
 	 *
 	 * @return {@code true} if the set is empty and {@code false} otherwise
 	 */

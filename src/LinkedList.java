@@ -178,7 +178,7 @@ public class LinkedList<T> implements Sequence<T> {
 	 * Returns {@code true} if the sequence is empty and {@code false}
 	 * otherwise.
 	 * Worst case: O(1)
-	 * With a size varible it only needs to check if the size variable equals 0
+	 * With a size variable it only needs to check if the size variable equals 0
 	 *
 	 * @return {@code true} if the sequence is empty and {@code false}
 	 *         otherwise
