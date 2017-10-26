@@ -11,6 +11,7 @@ class BSTtester{
         passed &= testRemove();
         passed &= testSize();
         passed &= testToArray();
+        passed &= testToString();
         if (passed) {
             System.out.println("All tests passed");
         }
@@ -103,5 +104,16 @@ class BSTtester{
 		}
 		return testMethod("toArray test", passed);
 	}
+	
+	public static boolean testToString() {
+		Integer[] lst = {7, 3, 19, 4, 5, 4, 100, 6, 17};
+		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(lst);
+		System.out.printf("%s", tree.toString());
+		boolean passed = testMethod("toString test 1", tree.toString() == "[3, 4, 5, 6, 7, 17, 19, 100]");
+		tree.clear();
+		return testMethod("toString test 2", (tree.toString() == "[]")) && passed;
+	}
+	
+	
 		
 }
