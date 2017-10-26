@@ -10,6 +10,7 @@ class BSTtester{
         passed &= testIsEmpty();
         passed &= testRemove();
         passed &= testSize();
+        passed &= testToArray();
         if (passed) {
             System.out.println("All tests passed");
         }
@@ -95,7 +96,7 @@ class BSTtester{
 	public static boolean testToArray() {
 		Integer[] lst = {3, 4, 5, 6, 18, 100};
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(lst);
-		Integer[] lst2 = (Integer[])tree.toArray();
+		Integer[] lst2 = tree.toArray();
 		boolean passed = true;
 		for (int x = 0; x < 6; x++) {
 			passed &= lst[x] == lst2[x];
