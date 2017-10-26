@@ -1,6 +1,9 @@
+import java.util.Arrays;
+
 class LinkedListTest {
     public static void main(String[] args) {
         boolean passed = testAdd();
+        passed &= testToArray();
         passed &= testGet();
         passed &= testRemove();
         passed &= testContains();
@@ -44,6 +47,13 @@ class LinkedListTest {
         list.add(4, 4);
         list.add(3, 5);
         return passed & testMethod("add test 2", list.toString().equals("[3, 0, 2, 5, 1, 4]"));
+    }
+
+    public static boolean testToArray() {
+        Integer[] array = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+        LinkedList<Integer> list = new LinkedList<Integer>(array);
+        Integer[] array2 = list.toArray();
+        return testMethod("toArray test", Arrays.equals(array, array2));
     }
 
     public static boolean testGet() {

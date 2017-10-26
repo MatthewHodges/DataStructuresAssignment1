@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class LinkedList<T> implements Sequence<T> {
@@ -277,13 +278,14 @@ public class LinkedList<T> implements Sequence<T> {
 	 *
 	 * @return an array containing the elements of the sequence
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public Object[] toArray() {
+	public T[] toArray() {
 		if (isEmpty()) {
 			return null;
 		}
 		else {
-			Object[] array = new Object[size];
+			T[] array = (T[]) Array.newInstance(head.datum.getClass(), size());
 			int i = 0;
 			for (ListNode node = head; node != null; node = node.next) {
 				array[i++] = node.datum;
