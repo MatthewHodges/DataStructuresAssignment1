@@ -74,7 +74,11 @@ class BSTtester{
 		for (Integer x: lst) {
             tree.add(x);
         }
-		return passed & testMethod("remove test 2", tree.remove(5) && tree.size() == 7);
+		passed = testMethod("remove test 2", tree.remove(5) && tree.size() == 7);
+		Integer[] lst2 = {1, 2, 3, 4, 5, 6};
+		tree = new BinarySearchTree<Integer>(lst2);
+		passed = testMethod("remove test 3", tree.remove(1) && tree.size() == 5);
+		return passed & testMethod("remove test 4", tree.remove(6) && tree.size() == 4);
 	}
 	
 	public static boolean testSize() {
