@@ -1,28 +1,28 @@
 The BSTTest class runs a number of tests on each method of the Binary Search Tree class.
 
 testAdd
-- Fills the list using add(T) and checks the toString of the full tree.
+- Fills the tree using add(T) and checks the toString of the full tree.
 
 testConstructor
 - Tests constructor with passed array by checking toString of the full tree.
 
 testClear
-- Tests clear function by checking both toString and size.
+- Tests clear function by filling a tree, then clearing it and checking both toString and size.
 
 testContains
 - Populates a tree then checks both for something in the tree and something not in the tree.
 
 testIsEmpty
-- Populates a tree then checks if it's empty, then clears the tree and checks again
+- Populates a tree then checks if it's empty, then clears the tree and checks again.
 
 testRemove
-- Tests removing from an empty tree
-- Populates tree then tests removing something
+- Tests removing from an empty tree.
+- Populates tree then tests removing something.
 - Populates an unbalanced tree and removes root, then the leaf node.
 
 testSize
-- Populates an array and checks size at each step including repeated numbers
-- Removes nodes that are and aren't in the tree and checks size
+- Populates the tree and checks size at each step including repeated numbers.
+- Removes nodes that are and aren't in the tree and checks size.
 
 testToArray
 - Populates the tree then checks its array.

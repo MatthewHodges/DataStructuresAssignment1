@@ -1,8 +1,6 @@
 
 class BSTtester{
 	public static void main(String[] args){
-		
-		
 		boolean passed = testAdd();
         passed &= testConstructor();
         passed &= testClear();
@@ -19,7 +17,7 @@ class BSTtester{
             System.out.println("Some tests failed");
         }
     }
-	
+
 	public static boolean testMethod(String name, boolean test) {
         if (test) {
             System.out.printf("+Passed %s\n", name);
@@ -29,7 +27,7 @@ class BSTtester{
         }
         return test;
     }
-	
+
 	public static boolean testAdd() {
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>();
 		Integer[] data = {7, 3, 19, 4, 5, 4, 100, 6, 17};
@@ -38,13 +36,13 @@ class BSTtester{
         }
 		 return testMethod("add test", tree.toString().equals("[3, 4, 5, 6, 7, 17, 19, 100]"));
 	}
-	
+
 	public static boolean testConstructor() {
 		Integer[] lst = {7, 3, 19, 4, 5, 4, 100, 6, 17};
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(lst);
 		return testMethod("constructor test", tree.toString().equals("[3, 4, 5, 6, 7, 17, 19, 100]"));
 	}
-	
+
 	public static boolean testClear() {
 		Integer[] lst = {7, 3, 19, 4, 5, 4, 100, 6, 17};
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(lst);
@@ -52,13 +50,13 @@ class BSTtester{
 		boolean passed = testMethod("clear test 1", tree.toString().equals("[]"));
 		return testMethod("clear test 2", tree.size() == 0) && passed;
 	}
-	
+
 	public static boolean testContains() {
 		Integer[] lst = {7, 3, 19, 4, 5, 4, 100, 6, 17};
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(lst);
 		return testMethod("contains test", tree.contains(7) && !tree.contains(94) && tree.contains(4));
 	}
-	
+
 	public static boolean testIsEmpty() {
 		Integer[] lst = {7, 3, 19, 4, 5, 4, 100, 6, 17};
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(lst);
@@ -66,7 +64,7 @@ class BSTtester{
 		tree.clear();
 		return testMethod("isEmpty test", passed && tree.isEmpty());
 	}
-	
+
 	public static boolean testRemove() {
 		Integer[] lst = {7, 3, 19, 4, 5, 4, 100, 6, 17};
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>();
@@ -80,7 +78,7 @@ class BSTtester{
 		passed = testMethod("remove test 3", tree.remove(1) && tree.size() == 5);
 		return passed & testMethod("remove test 4", tree.remove(6) && tree.size() == 4);
 	}
-	
+
 	public static boolean testSize() {
 		Integer[] lst = {7, 3, 19, 4, 5, 4, 100, 6, 17};
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>();
@@ -94,10 +92,10 @@ class BSTtester{
 		passed &= tree.size() == 5;
 		tree.remove(4);
 		passed &= tree.size() == 4;
-		
+
 		return testMethod("size test", passed);
 	}
-	
+
 	public static boolean testToArray() {
 		Integer[] lst = {3, 4, 5, 6, 18, 100};
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(lst);
@@ -108,7 +106,7 @@ class BSTtester{
 		}
 		return testMethod("toArray test", passed);
 	}
-	
+
 	public static boolean testToString() {
 		Integer[] lst = {7, 3, 19, 4, 5, 4, 100, 6, 17};
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(lst);
@@ -116,7 +114,7 @@ class BSTtester{
 		tree.clear();
 		return testMethod("toString test 2", (tree.toString() == "[]")) && passed;
 	}
-	
-	
-		
+
+
+
 }
