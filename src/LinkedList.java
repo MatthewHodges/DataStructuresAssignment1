@@ -20,11 +20,23 @@ public class LinkedList<T> implements Sequence<T> {
 	private ListNode head;
 	private int size;
 
+    /**
+     * Create an empty list
+     * Worst case: O(1)
+     * merely initializes the fields
+     */
 	public LinkedList() {
 		head = null;
 		size = 0;
 	}
 
+    /**
+     * Create a LinkedList from an array
+     * Worst case: O(n)
+     * iterates through the array backwards, only creating a new head each time
+     *
+     * @param array the array to populate from
+     */
 	public LinkedList(T[] array) {
 		head = null;
 		size = array.length;
@@ -294,6 +306,13 @@ public class LinkedList<T> implements Sequence<T> {
 		}
 	}
 
+    /**
+     * Returns a string representation of the list
+     * Worst case: O(n)
+     * iterates over the array from toArray, so really O(2n)
+     *
+     * @return the string representation of the list
+     */
 	@Override
 	public String toString() {
 		if (isEmpty()) {

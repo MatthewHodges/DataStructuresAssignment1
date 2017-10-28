@@ -23,11 +23,24 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	private TreeNode root;
 	private int size;
 
+    /**
+     * Create an empty tree
+     * Worst case: O(1)
+     * merely initialized the fields
+     */
 	public BinarySearchTree() {
 		root = null;
 		size = 0;
 	}
 
+    /**
+     * Create a BST from an array
+     * Worst case: O(nlog(n))
+     * if the array is sorted, add will have to recurse through every prior node
+     * to add each successive node (not very well implemented)
+     *
+     * @param array the array to populate from
+     */
 	public BinarySearchTree(T[] array) {
 		root = null;
 		size = 0;
@@ -198,7 +211,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 	 * Returns an array containing all of the objects in the set in the proper
 	 * order (from least to greatest).
 	 * Worst case: O(n)
-	 * Creating an array requires getting all elements
+	 * Creating an array requires getting all elements, which happens in order
 	 *
 	 * @return an array containing the objects in the set
 	 */
@@ -224,6 +237,13 @@ class BinarySearchTree<T extends Comparable<T>> implements Set<T> {
 		return index;
 	}
 
+    /**
+     * Returns a string representation of the tree
+     * Worst case: O(n)
+     * iterates over the array from toArray, so really O(2n)
+     *
+     * @return the string representation of the tree
+     */
 	@Override
 	public String toString() {
 		if (isEmpty()) {
