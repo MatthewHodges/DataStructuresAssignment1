@@ -9,25 +9,30 @@ testConstructor
 - Tests constructor with passed array by checking toString of the full tree.
 
 testClear
-- Tests clear function by filling a tree, then clearing it and checking both toString and size.
+- Tests clear function by filling a tree, then clearing it and checking toString.
+- Test 2 checks the size is 0.
 
 testContains
 - Populates a tree then checks both for something in the tree and something not in the tree.
 
 testIsEmpty
-- Populates a tree then checks if it's empty, then clears the tree and checks again.
+- Populates a tree then checks if it's empty.
+- Clears the tree and checks if it's empty.
 
 testRemove
 - Tests removing from an empty tree.
 - Populates tree then tests removing something.
-- Populates an unbalanced tree and removes root, then the leaf node.
+- Populates an unbalanced tree and removes root
+- Using the same unbalanced tree removes a leaf node.
 
 testSize
 - Populates the tree and checks size at each step including repeated numbers.
-- Removes nodes that are and aren't in the tree and checks size.
+- Removes nodes that aren't in the tree and checks size.
+- Removes nodes that are in the tree and checks size.
 
 testToArray
 - Populates the tree then checks its array.
 
 testToString
-- Populates the tree and checks its toString, then clears it and checks its toString.
+- Populates the tree and checks its toString.
+- Tests a cleared tree's toString method.
