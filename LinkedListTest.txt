@@ -1,4 +1,6 @@
 The LinkedListTest class runs a number of tests on each method of the LinkedList class. (full is used to mean a list with elements in it)
+Usage: java LinkedListTest
+Output: For each test prints passed or failed. At the end prints whether all of the tests passed.
 
 testAdd
 - Fills the list using add(T) and checks the toString of the full list.

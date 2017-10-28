@@ -1,4 +1,6 @@
 The BSTTest class runs a number of tests on each method of the Binary Search Tree class.
+Usage: java BSTtester
+Output: For each test prints passed or failed. At the end prints whether all of the tests passed.
 
 testAdd
 - Fills the tree using add(T) and checks the toString of the full tree.
